@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jButton1" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="25" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;head&gt;   &#x9; &lt;/head&gt; &lt;body&gt;  &#x9;  &#x9;&lt;span style=&quot;font-weight: bold; font-size: 14pt;&quot;&gt;Super PIM System&lt;/span&gt;&lt;br /&gt; &#x9; &#x9; &#x9;&amp;nbsp;&amp;nbsp; Software desenvolvido com o intuito de colocar em pr&#xe1;tica os conceitos vistos durante a disciplina&lt;br /&gt; &#x9; &#x9;de Engenharia de Software. Este programa possui uma agenda telef&#xf4;nica eletr&#xf4;nica onde poder&#xe3;o ser&lt;br /&gt; salvas informa&amp;ccedil;&amp;otilde;es como nome, telefone, endere&#xe7;o, etc. de seus amigos e conhecidos. Voc&#xea;  &lt;br /&gt; tamb&#xe9;m poder&#xe1; desfrutar de um sistema de lembretes, onde voc&#xea; cadastra seus compromissos.&lt;br /&gt; Poder&#xe1; armazenar senhas e seriais de seus usu&#xe1;rios / softwares. Guarde telefones &#xfa;teis,&lt;br/&gt; Supermercado, M&#xe9;dicos etc... Voc&#xea; ainda poder&#xe1; fazer algumas anota&#xe7;&#xf5;es, al&#xe9;m de ser integrado&lt;br&gt; com as redes sociais Facebook e Twitter!&#x9; &#x9; &#x9;&lt;br /&gt;&lt;br /&gt; &#x9; &#x9; &#x9;&lt;span style=&quot;font-weight: bold; font-size: 14pt;&quot;&gt;Licen&amp;ccedil;a&lt;/span&gt;&lt;br /&gt; &#x9; &#x9; &#x9;&amp;nbsp;&amp;nbsp;&amp;nbsp; Este software &amp;eacute; freeware e est&#xe1; livre para&amp;nbsp; distribu&#xed;&amp;ccedil;&#xe3;o. Este programa n&#xe3;o cont&amp;eacute;m nenhum tipo&lt;br /&gt; &#x9;de garantia. O risco e os problemas causados pelo seu uso s&#xe3;o por conta do usu&#xe1;rio. &lt;br&gt;Este projeto foi baseado no software Agenda Nortev, dispon&#xed;vel em: &lt;br&gt;&lt;a href=&quot;https://github.com/mtnoronha/AgendaNortev&quot;&gt;&lt;span&gt;https://github.com/mtnoronha/AgendaNortev&lt;/span&gt;&lt;/a&gt;&lt;/font&gt;&lt;/u&gt;&amp;gt;.&lt;/br&gt; &#x9; &#x9; &#x9;&lt;/br&gt; &#x9; &#x9; &#x9; &#x9;   &lt;/body&gt; &lt;/html&gt;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Fechar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>
