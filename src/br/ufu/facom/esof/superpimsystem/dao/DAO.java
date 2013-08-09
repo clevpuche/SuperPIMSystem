@@ -1,13 +1,13 @@
 
 package br.ufu.facom.esof.superpimsystem.dao;
 
-import br.ufu.facom.esof.superpimsystem.control.SerialSenha;
-import br.ufu.facom.esof.superpimsystem.control.Contato;
-import br.ufu.facom.esof.superpimsystem.control.Uteis;
-import br.ufu.facom.esof.superpimsystem.control.Receita;
-import br.ufu.facom.esof.superpimsystem.control.DadosPessoais;
-import br.ufu.facom.esof.superpimsystem.control.Anotacao;
-import br.ufu.facom.esof.superpimsystem.control.Compromisso;
+import br.ufu.facom.esof.superpimsystem.model.SerialSenha;
+import br.ufu.facom.esof.superpimsystem.model.Contato;
+import br.ufu.facom.esof.superpimsystem.model.Uteis;
+import br.ufu.facom.esof.superpimsystem.model.Receita;
+import br.ufu.facom.esof.superpimsystem.model.DadosPessoais;
+import br.ufu.facom.esof.superpimsystem.model.Anotacao;
+import br.ufu.facom.esof.superpimsystem.model.Compromisso;
 import java.sql.SQLException;
 import java.util.ArrayList;
 

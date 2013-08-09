@@ -1,26 +1,24 @@
-package br.ufu.facom.esof.superpimsystem.model;
+package br.ufu.facom.esof.superpimsystem.control;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
-import br.ufu.facom.esof.superpimsystem.control.Compromisso;
+import br.ufu.facom.esof.superpimsystem.model.Contato;
 
-public class CompromissosModel extends AbstractTableModel {
+public class ContatosControl extends AbstractTableModel {
 
 
     private static final long serialVersionUID = 1L;
 
 
-    private List<Compromisso> linhas;
-    private List<Compromisso> filtrados;
+    private List<Contato> linhas;
+    private List<Contato> filtrados;
 
 
     private String[] colunas = new String[]{
-        "Data", "Hora","Local", "Detalhes"};
+        "Nome","DDD","Telefone","Celular","Cidade","Bairro","Endereço"};
 
-      
-      
-    public void filtrarDetalhes(String pesquisando) {
+        public void filtrarBairro(String pesquisando) {
         filtrados.clear();
         if (pesquisando == null) {
             pesquisando = "";
@@ -28,46 +26,9 @@ public class CompromissosModel extends AbstractTableModel {
 
         pesquisando = pesquisando.toLowerCase();
 
-        for (Compromisso atual : linhas) {
+        for (Contato atual : linhas) {
             if (pesquisando.equals("")
-                    || atual.getDetalhes().toLowerCase().contains(pesquisando)) {
-                filtrados.add(atual);
-            }
-
-        }
-
-        fireTableDataChanged();
-    }
-  
-    public void filtrarLocal(String pesquisando) {
-        filtrados.clear();
-        if (pesquisando == null) {
-            pesquisando = "";
-        }
-
-        pesquisando = pesquisando.toLowerCase();
-
-        for (Compromisso atual : linhas) {
-            if (pesquisando.equals("")
-                    || atual.getLocal().toLowerCase().contains(pesquisando)) {
-                filtrados.add(atual);
-            }
-
-        }
-
-        fireTableDataChanged();
-    }
-public void filtrarHora(String pesquisando) {
-        filtrados.clear();
-        if (pesquisando == null) {
-            pesquisando = "";
-        }
-
-        pesquisando = pesquisando.toLowerCase();
-
-        for (Compromisso atual : linhas) {
-            if (pesquisando.equals("")
-                    || atual.getHora().toLowerCase().contains(pesquisando)) {
+                    || atual.getBairro().toLowerCase().contains(pesquisando)) {
                 filtrados.add(atual);
             }
 
@@ -76,7 +37,7 @@ public void filtrarHora(String pesquisando) {
         fireTableDataChanged();
     }
 
-public void filtrarData(String pesquisando) {
+    public void filtrarCidade(String pesquisando) {
         filtrados.clear();
         if (pesquisando == null) {
             pesquisando = "";
@@ -84,9 +45,9 @@ public void filtrarData(String pesquisando) {
 
         pesquisando = pesquisando.toLowerCase();
 
-        for (Compromisso atual : linhas) {
+        for (Contato atual : linhas) {
             if (pesquisando.equals("")
-                    || atual.getData().toString().toLowerCase().contains(pesquisando)) {
+                    || atual.getCidade().toLowerCase().contains(pesquisando)) {
                 filtrados.add(atual);
             }
 
@@ -95,15 +56,52 @@ public void filtrarData(String pesquisando) {
         fireTableDataChanged();
     }
 
+    public void filtrarDDD(String pesquisando) {
+        filtrados.clear();
+        if (pesquisando == null) {
+            pesquisando = "";
+        }
 
-    public CompromissosModel() {
-        linhas = new ArrayList<Compromisso>();
-        filtrados = new ArrayList<Compromisso>();
+        pesquisando = pesquisando.toLowerCase();
+
+        for (Contato atual : linhas) {
+
+            String procurandoPor = "" + atual.getDDD();
+            if (pesquisando.equals("")
+                    || procurandoPor.contains(pesquisando)) {
+                filtrados.add(atual);
+            }
+        }
+
+        fireTableDataChanged();
+    }
+
+    public void filtrarNome(String pesquisando) {
+        filtrados.clear();
+        if (pesquisando == null){pesquisando = "";}
+
+        pesquisando = pesquisando.toLowerCase();
+
+        for (Contato atual : linhas) {
+            if (pesquisando.equals("")
+                    || atual.getNome().toLowerCase().contains(pesquisando)) {
+                filtrados.add(atual);
+            }
+
+        }
+
+        fireTableDataChanged();
+    }
+
+    public ContatosControl() {
+        linhas = new ArrayList<Contato>();
+        filtrados = new ArrayList<Contato>();
+        filtrarNome("");
     }
 
 
-    public CompromissosModel(List<Compromisso> listaDeCompromisso) {
-        linhas = new ArrayList<Compromisso>(listaDeCompromisso);
+    public ContatosControl(List<Contato> listaDeContato) {
+        linhas = new ArrayList<Contato>(listaDeContato);
     }
 
 
@@ -137,20 +135,25 @@ public void filtrarData(String pesquisando) {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-            Compromisso Compromisso = filtrados.get(rowIndex);
+            Contato Contato = filtrados.get(rowIndex);
 
 
         switch (columnIndex) {
-        //"Data", "Hora","Local", "Estatus", "Detalhes"
+        //"Nome","DDD","Telefone","Celular","Cidade","Bairro","Endereço"
             case 0:
-                return Compromisso.getData();
+                return Contato.getNome();
             case 1:
-                return Compromisso.getHora();
+                return Contato.getDDD();
             case 2:
-                return Compromisso.getLocal();
-
+                return Contato.getTel();
             case 3:
-                return Compromisso.getDetalhes();
+                return Contato.getCel();
+            case 4:
+                return Contato.getCidade();
+            case 5:
+                return Contato.getBairro();
+            case 6:
+                return Contato.getEndereco();
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
@@ -162,7 +165,7 @@ public void filtrarData(String pesquisando) {
      }
     ;
 
-        public void setValueAt(Compromisso aValue, int rowIndex) {
+        public void setValueAt(Contato aValue, int rowIndex) {
 
                     filtrados.set(rowIndex, aValue);
 
@@ -180,16 +183,15 @@ public void filtrarData(String pesquisando) {
 
 
 
-    public Compromisso getCompromisso(int indiceLinha) {
+    public Contato getContato(int indiceLinha) {
         return filtrados.get(indiceLinha);
     }
 
 
 
-    public void addCompromisso(Compromisso m) {
+    public void addContato(Contato m) {
 
         linhas.add(m);
-
 
         int ultimoIndice = getRowCount() - 1;
 
@@ -197,19 +199,19 @@ public void filtrarData(String pesquisando) {
     }
 
 
-    public void removeCompromisso(int indiceLinha) {
+    public void removeContato(int indiceLinha) {
         linhas.remove(indiceLinha);
 
         fireTableRowsDeleted(indiceLinha, indiceLinha);
     }
 
 
-    public void addListaDeCompromisso(List<Compromisso> Compromisso) {
+    public void addListaDeContato(List<Contato> Contato) {
 
         int tamanhoAntigo = getRowCount();
 
 
-        linhas.addAll(Compromisso);
+        linhas.addAll(Contato);
 
         fireTableRowsInserted(tamanhoAntigo, getRowCount() - 1);
     }
@@ -225,10 +227,6 @@ public void filtrarData(String pesquisando) {
 
     public boolean isEmpty() {
         return linhas.isEmpty();
-    }
-
-    public ArrayList<Compromisso> getAllCompromissos() {
-        return (ArrayList) linhas;
     }
 
 

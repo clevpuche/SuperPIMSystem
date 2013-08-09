@@ -4,7 +4,7 @@ package br.ufu.facom.esof.superpimsystem.view;
 
 import br.ufu.facom.esof.superpimsystem.dao.DAOFactory;
 import javax.swing.JOptionPane;
-import br.ufu.facom.esof.superpimsystem.control.SerialSenha;
+import br.ufu.facom.esof.superpimsystem.model.SerialSenha;
 
 
 public class SerialGUI extends javax.swing.JFrame {

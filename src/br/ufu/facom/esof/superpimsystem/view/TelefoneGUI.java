@@ -2,7 +2,7 @@ package br.ufu.facom.esof.superpimsystem.view;
 
 import br.ufu.facom.esof.superpimsystem.dao.DAOFactory;
 import javax.swing.JOptionPane;
-import br.ufu.facom.esof.superpimsystem.control.Uteis;
+import br.ufu.facom.esof.superpimsystem.model.Uteis;
 
 public class TelefoneGUI extends javax.swing.JFrame {
 

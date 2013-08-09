@@ -1,24 +1,26 @@
-package br.ufu.facom.esof.superpimsystem.model;
+package br.ufu.facom.esof.superpimsystem.control;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
-import br.ufu.facom.esof.superpimsystem.control.Contato;
+import br.ufu.facom.esof.superpimsystem.model.Compromisso;
 
-public class ContatosModel extends AbstractTableModel {
+public class CompromissosControl extends AbstractTableModel {
 
 
     private static final long serialVersionUID = 1L;
 
 
-    private List<Contato> linhas;
-    private List<Contato> filtrados;
+    private List<Compromisso> linhas;
+    private List<Compromisso> filtrados;
 
 
     private String[] colunas = new String[]{
-        "Nome","DDD","Telefone","Celular","Cidade","Bairro","Endereço"};
+        "Data", "Hora","Local", "Detalhes"};
 
-        public void filtrarBairro(String pesquisando) {
+      
+      
+    public void filtrarDetalhes(String pesquisando) {
         filtrados.clear();
         if (pesquisando == null) {
             pesquisando = "";
@@ -26,9 +28,9 @@ public class ContatosModel extends AbstractTableModel {
 
         pesquisando = pesquisando.toLowerCase();
 
-        for (Contato atual : linhas) {
+        for (Compromisso atual : linhas) {
             if (pesquisando.equals("")
-                    || atual.getBairro().toLowerCase().contains(pesquisando)) {
+                    || atual.getDetalhes().toLowerCase().contains(pesquisando)) {
                 filtrados.add(atual);
             }
 
@@ -36,8 +38,8 @@ public class ContatosModel extends AbstractTableModel {
 
         fireTableDataChanged();
     }
-
-    public void filtrarCidade(String pesquisando) {
+  
+    public void filtrarLocal(String pesquisando) {
         filtrados.clear();
         if (pesquisando == null) {
             pesquisando = "";
@@ -45,9 +47,9 @@ public class ContatosModel extends AbstractTableModel {
 
         pesquisando = pesquisando.toLowerCase();
 
-        for (Contato atual : linhas) {
+        for (Compromisso atual : linhas) {
             if (pesquisando.equals("")
-                    || atual.getCidade().toLowerCase().contains(pesquisando)) {
+                    || atual.getLocal().toLowerCase().contains(pesquisando)) {
                 filtrados.add(atual);
             }
 
@@ -55,8 +57,7 @@ public class ContatosModel extends AbstractTableModel {
 
         fireTableDataChanged();
     }
-
-    public void filtrarDDD(String pesquisando) {
+public void filtrarHora(String pesquisando) {
         filtrados.clear();
         if (pesquisando == null) {
             pesquisando = "";
@@ -64,27 +65,28 @@ public class ContatosModel extends AbstractTableModel {
 
         pesquisando = pesquisando.toLowerCase();
 
-        for (Contato atual : linhas) {
-
-            String procurandoPor = "" + atual.getDDD();
+        for (Compromisso atual : linhas) {
             if (pesquisando.equals("")
-                    || procurandoPor.contains(pesquisando)) {
+                    || atual.getHora().toLowerCase().contains(pesquisando)) {
                 filtrados.add(atual);
             }
+
         }
 
         fireTableDataChanged();
     }
 
-    public void filtrarNome(String pesquisando) {
+public void filtrarData(String pesquisando) {
         filtrados.clear();
-        if (pesquisando == null){pesquisando = "";}
+        if (pesquisando == null) {
+            pesquisando = "";
+        }
 
         pesquisando = pesquisando.toLowerCase();
 
-        for (Contato atual : linhas) {
+        for (Compromisso atual : linhas) {
             if (pesquisando.equals("")
-                    || atual.getNome().toLowerCase().contains(pesquisando)) {
+                    || atual.getData().toString().toLowerCase().contains(pesquisando)) {
                 filtrados.add(atual);
             }
 
@@ -93,15 +95,15 @@ public class ContatosModel extends AbstractTableModel {
         fireTableDataChanged();
     }
 
-    public ContatosModel() {
-        linhas = new ArrayList<Contato>();
-        filtrados = new ArrayList<Contato>();
-        filtrarNome("");
+
+    public CompromissosControl() {
+        linhas = new ArrayList<Compromisso>();
+        filtrados = new ArrayList<Compromisso>();
     }
 
 
-    public ContatosModel(List<Contato> listaDeContato) {
-        linhas = new ArrayList<Contato>(listaDeContato);
+    public CompromissosControl(List<Compromisso> listaDeCompromisso) {
+        linhas = new ArrayList<Compromisso>(listaDeCompromisso);
     }
 
 
@@ -135,25 +137,20 @@ public class ContatosModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-            Contato Contato = filtrados.get(rowIndex);
+            Compromisso Compromisso = filtrados.get(rowIndex);
 
 
         switch (columnIndex) {
-        //"Nome","DDD","Telefone","Celular","Cidade","Bairro","Endereço"
+        //"Data", "Hora","Local", "Estatus", "Detalhes"
             case 0:
-                return Contato.getNome();
+                return Compromisso.getData();
             case 1:
-                return Contato.getDDD();
+                return Compromisso.getHora();
             case 2:
-                return Contato.getTel();
+                return Compromisso.getLocal();
+
             case 3:
-                return Contato.getCel();
-            case 4:
-                return Contato.getCidade();
-            case 5:
-                return Contato.getBairro();
-            case 6:
-                return Contato.getEndereco();
+                return Compromisso.getDetalhes();
             default:
                 throw new IndexOutOfBoundsException("columnIndex out of bounds");
         }
@@ -165,7 +162,7 @@ public class ContatosModel extends AbstractTableModel {
      }
     ;
 
-        public void setValueAt(Contato aValue, int rowIndex) {
+        public void setValueAt(Compromisso aValue, int rowIndex) {
 
                     filtrados.set(rowIndex, aValue);
 
@@ -183,15 +180,16 @@ public class ContatosModel extends AbstractTableModel {
 
 
 
-    public Contato getContato(int indiceLinha) {
+    public Compromisso getCompromisso(int indiceLinha) {
         return filtrados.get(indiceLinha);
     }
 
 
 
-    public void addContato(Contato m) {
+    public void addCompromisso(Compromisso m) {
 
         linhas.add(m);
+
 
         int ultimoIndice = getRowCount() - 1;
 
@@ -199,19 +197,19 @@ public class ContatosModel extends AbstractTableModel {
     }
 
 
-    public void removeContato(int indiceLinha) {
+    public void removeCompromisso(int indiceLinha) {
         linhas.remove(indiceLinha);
 
         fireTableRowsDeleted(indiceLinha, indiceLinha);
     }
 
 
-    public void addListaDeContato(List<Contato> Contato) {
+    public void addListaDeCompromisso(List<Compromisso> Compromisso) {
 
         int tamanhoAntigo = getRowCount();
 
 
-        linhas.addAll(Contato);
+        linhas.addAll(Compromisso);
 
         fireTableRowsInserted(tamanhoAntigo, getRowCount() - 1);
     }
@@ -227,6 +225,10 @@ public class ContatosModel extends AbstractTableModel {
 
     public boolean isEmpty() {
         return linhas.isEmpty();
+    }
+
+    public ArrayList<Compromisso> getAllCompromissos() {
+        return (ArrayList) linhas;
     }
 
 

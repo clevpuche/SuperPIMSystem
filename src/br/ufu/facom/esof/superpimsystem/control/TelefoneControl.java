@@ -1,11 +1,11 @@
-package br.ufu.facom.esof.superpimsystem.model;
+package br.ufu.facom.esof.superpimsystem.control;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
-import br.ufu.facom.esof.superpimsystem.control.Uteis;
+import br.ufu.facom.esof.superpimsystem.model.Uteis;
 
-public class TelefoneModel extends AbstractTableModel {
+public class TelefoneControl extends AbstractTableModel {
 
     private static final long serialVersionUID = 1L;
     private List<Uteis> linhas;
@@ -13,12 +13,12 @@ public class TelefoneModel extends AbstractTableModel {
     private String[] colunas = new String[]{
         "Telefone", "Descrição"};
 
-    public TelefoneModel() {
+    public TelefoneControl() {
         linhas = new ArrayList<Uteis>();
         filtrados = new ArrayList<Uteis>();
     }
 
-    public TelefoneModel(List<Uteis> listaDeUteis) {
+    public TelefoneControl(List<Uteis> listaDeUteis) {
         linhas = new ArrayList<Uteis>(listaDeUteis);
     }
 

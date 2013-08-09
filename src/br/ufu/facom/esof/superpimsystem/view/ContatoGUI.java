@@ -4,7 +4,7 @@ import br.ufu.facom.esof.superpimsystem.dao.DAOFactory;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
-import br.ufu.facom.esof.superpimsystem.control.Contato;
+import br.ufu.facom.esof.superpimsystem.model.Contato;
 
 
 public class ContatoGUI extends javax.swing.JFrame {

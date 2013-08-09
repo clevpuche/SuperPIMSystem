@@ -1,12 +1,12 @@
-package br.ufu.facom.esof.superpimsystem.model;
+package br.ufu.facom.esof.superpimsystem.control;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
-import br.ufu.facom.esof.superpimsystem.control.SerialSenha;
+import br.ufu.facom.esof.superpimsystem.model.SerialSenha;
 
 
-public class SerialModel extends AbstractTableModel {
+public class SerialControl extends AbstractTableModel {
 
 
     private static final long serialVersionUID = 1L;
@@ -60,13 +60,13 @@ public class SerialModel extends AbstractTableModel {
     }
 
 
-    public SerialModel() {
+    public SerialControl() {
         linhas = new ArrayList<SerialSenha>();
         filtrados = new ArrayList<SerialSenha>();
     }
 
 
-    public SerialModel(List<SerialSenha> listaDeSerialSenha) {
+    public SerialControl(List<SerialSenha> listaDeSerialSenha) {
         linhas = new ArrayList<SerialSenha>(listaDeSerialSenha);
     }
 

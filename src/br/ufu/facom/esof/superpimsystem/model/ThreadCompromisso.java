@@ -1,4 +1,4 @@
-package br.ufu.facom.esof.superpimsystem.control;
+package br.ufu.facom.esof.superpimsystem.model;
 
 import br.ufu.facom.esof.superpimsystem.view.Principal;
 import br.ufu.facom.esof.superpimsystem.dao.DAO;

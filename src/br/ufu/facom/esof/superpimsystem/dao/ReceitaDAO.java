@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import br.ufu.facom.esof.superpimsystem.control.Receita;
+import br.ufu.facom.esof.superpimsystem.model.Receita;
 
 public class ReceitaDAO extends DAO{
        

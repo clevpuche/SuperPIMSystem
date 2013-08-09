@@ -7,8 +7,8 @@ import java.sql.Date;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
-import br.ufu.facom.esof.superpimsystem.control.Compromisso;
-import br.ufu.facom.esof.superpimsystem.control.ThreadCompromisso;
+import br.ufu.facom.esof.superpimsystem.model.Compromisso;
+import br.ufu.facom.esof.superpimsystem.model.ThreadCompromisso;
 
 
 public class CompromissoGUI extends javax.swing.JFrame {

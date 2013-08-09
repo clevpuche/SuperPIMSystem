@@ -18,29 +18,29 @@ import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 import javax.swing.ToolTipManager;
 import javax.swing.UIManager;
-import br.ufu.facom.esof.superpimsystem.control.Anotacao;
-import br.ufu.facom.esof.superpimsystem.control.Compromisso;
-import br.ufu.facom.esof.superpimsystem.control.Contato;
-import br.ufu.facom.esof.superpimsystem.control.DadosPessoais;
-import br.ufu.facom.esof.superpimsystem.control.Receita;
-import br.ufu.facom.esof.superpimsystem.control.SerialSenha;
-import br.ufu.facom.esof.superpimsystem.control.ThreadCompromisso;
-import br.ufu.facom.esof.superpimsystem.control.Uteis;
-import br.ufu.facom.esof.superpimsystem.model.AnotacoesModel;
-import br.ufu.facom.esof.superpimsystem.model.CompromissosModel;
-import br.ufu.facom.esof.superpimsystem.model.ContatosModel;
-import br.ufu.facom.esof.superpimsystem.model.ReceitasModel;
-import br.ufu.facom.esof.superpimsystem.model.SerialModel;
-import br.ufu.facom.esof.superpimsystem.model.TelefoneModel;
+import br.ufu.facom.esof.superpimsystem.model.Anotacao;
+import br.ufu.facom.esof.superpimsystem.model.Compromisso;
+import br.ufu.facom.esof.superpimsystem.model.Contato;
+import br.ufu.facom.esof.superpimsystem.model.DadosPessoais;
+import br.ufu.facom.esof.superpimsystem.model.Receita;
+import br.ufu.facom.esof.superpimsystem.model.SerialSenha;
+import br.ufu.facom.esof.superpimsystem.model.ThreadCompromisso;
+import br.ufu.facom.esof.superpimsystem.model.Uteis;
+import br.ufu.facom.esof.superpimsystem.control.AnotacoesControl;
+import br.ufu.facom.esof.superpimsystem.control.CompromissosControl;
+import br.ufu.facom.esof.superpimsystem.control.ContatosControl;
+import br.ufu.facom.esof.superpimsystem.control.ReceitasControl;
+import br.ufu.facom.esof.superpimsystem.control.SerialControl;
+import br.ufu.facom.esof.superpimsystem.control.TelefoneControl;
 
 public class Principal extends javax.swing.JFrame {
 
-    AnotacoesModel modeloAnotacoes;
-    public static CompromissosModel modeloComprimissos;
-    ContatosModel modeloContatos;
-    SerialModel modeloSerial;
-    TelefoneModel modeloTelefone;
-    ReceitasModel modeloReceita;
+    AnotacoesControl modeloAnotacoes;
+    public static CompromissosControl modeloComprimissos;
+    ContatosControl modeloContatos;
+    SerialControl modeloSerial;
+    TelefoneControl modeloTelefone;
+    ReceitasControl modeloReceita;
     SystemTray systemTray;
     final JPopupMenu popup = new JPopupMenu();
     TrayIcon trayIcon;
@@ -1376,12 +1376,12 @@ public class Principal extends javax.swing.JFrame {
         br.ufu.facom.esof.superpimsystem.dao.DAO d = null;
         br.ufu.facom.esof.superpimsystem.dao.DAO dComp = null;
 
-        modeloAnotacoes = new AnotacoesModel();
-        modeloComprimissos = new CompromissosModel();
-        modeloContatos = new ContatosModel();
-        modeloSerial = new SerialModel();
-        modeloTelefone = new TelefoneModel();
-        modeloReceita = new ReceitasModel();
+        modeloAnotacoes = new AnotacoesControl();
+        modeloComprimissos = new CompromissosControl();
+        modeloContatos = new ContatosControl();
+        modeloSerial = new SerialControl();
+        modeloTelefone = new TelefoneControl();
+        modeloReceita = new ReceitasControl();
 
 
         ArrayList<Anotacao> pegueiAnot = null;

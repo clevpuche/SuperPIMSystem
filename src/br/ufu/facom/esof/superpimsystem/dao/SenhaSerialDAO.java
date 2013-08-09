@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import br.ufu.facom.esof.superpimsystem.control.SerialSenha;
+import br.ufu.facom.esof.superpimsystem.model.SerialSenha;
 
 public class SenhaSerialDAO extends DAO{
 

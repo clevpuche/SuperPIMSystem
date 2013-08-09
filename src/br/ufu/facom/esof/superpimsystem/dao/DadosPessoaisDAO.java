@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import br.ufu.facom.esof.superpimsystem.control.DadosPessoais;
+import br.ufu.facom.esof.superpimsystem.model.DadosPessoais;
 
 
 public class DadosPessoaisDAO extends DAO {

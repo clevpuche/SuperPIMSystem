@@ -2,7 +2,7 @@ package br.ufu.facom.esof.superpimsystem.view;
 
 import br.ufu.facom.esof.superpimsystem.dao.DAOFactory;
 import javax.swing.JOptionPane;
-import br.ufu.facom.esof.superpimsystem.control.Receita;
+import br.ufu.facom.esof.superpimsystem.model.Receita;
 
 
 public class ReceitasGUI extends javax.swing.JFrame {

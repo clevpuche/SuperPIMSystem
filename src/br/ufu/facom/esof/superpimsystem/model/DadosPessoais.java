@@ -1,5 +1,5 @@
 
-package br.ufu.facom.esof.superpimsystem.control;
+package br.ufu.facom.esof.superpimsystem.model;
 
 
 public class DadosPessoais {

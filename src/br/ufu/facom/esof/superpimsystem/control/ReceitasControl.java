@@ -1,11 +1,11 @@
-package br.ufu.facom.esof.superpimsystem.model;
+package br.ufu.facom.esof.superpimsystem.control;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
-import br.ufu.facom.esof.superpimsystem.control.Receita;
+import br.ufu.facom.esof.superpimsystem.model.Receita;
 
-public class ReceitasModel extends AbstractTableModel {
+public class ReceitasControl extends AbstractTableModel {
 
     private static final long serialVersionUID = 1L;
     private List<Receita> linhas;
@@ -13,12 +13,12 @@ public class ReceitasModel extends AbstractTableModel {
     private String[] colunas = new String[]{
         "Nome", "Categoria","Ingredientes","Modo de Preparo"};
 
-    public ReceitasModel() {
+    public ReceitasControl() {
         linhas = new ArrayList<Receita>();
         filtrados = new ArrayList<Receita>();
     }
 
-    public ReceitasModel(List<Receita> listaDeReceita) {
+    public ReceitasControl(List<Receita> listaDeReceita) {
         linhas = new ArrayList<Receita>(listaDeReceita);
     }
 

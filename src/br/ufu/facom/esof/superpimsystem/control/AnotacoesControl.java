@@ -1,11 +1,11 @@
-package br.ufu.facom.esof.superpimsystem.model;
+package br.ufu.facom.esof.superpimsystem.control;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
-import br.ufu.facom.esof.superpimsystem.control.Anotacao;
+import br.ufu.facom.esof.superpimsystem.model.Anotacao;
 
-public class AnotacoesModel extends AbstractTableModel {
+public class AnotacoesControl extends AbstractTableModel {
 
 
     private static final long serialVersionUID = 1L;
@@ -18,13 +18,13 @@ public class AnotacoesModel extends AbstractTableModel {
     private String[] colunas = new String[]{
         "Título","Conteúdo"};
 
-    public AnotacoesModel() {
+    public AnotacoesControl() {
         linhas = new ArrayList<Anotacao>();
         filtrados = new ArrayList<Anotacao>();
     }
 
 
-    public AnotacoesModel(List<Anotacao> listaDeAnotacao) {
+    public AnotacoesControl(List<Anotacao> listaDeAnotacao) {
         linhas = new ArrayList<Anotacao>(listaDeAnotacao);
     }
 

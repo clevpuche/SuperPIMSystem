@@ -2,7 +2,7 @@ package br.ufu.facom.esof.superpimsystem.view;
 
 import br.ufu.facom.esof.superpimsystem.dao.DAO;
 import javax.swing.JOptionPane;
-import br.ufu.facom.esof.superpimsystem.control.DadosPessoais;
+import br.ufu.facom.esof.superpimsystem.model.DadosPessoais;
 
 public class DadosPessoaisGUI extends javax.swing.JFrame {
 

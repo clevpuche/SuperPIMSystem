@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import br.ufu.facom.esof.superpimsystem.control.Compromisso;
+import br.ufu.facom.esof.superpimsystem.model.Compromisso;
 
 
 public class CompromissoDAO extends DAO{
