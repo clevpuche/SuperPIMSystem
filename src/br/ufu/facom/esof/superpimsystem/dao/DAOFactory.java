@@ -22,7 +22,7 @@ public class DAOFactory {
     private SenhaSerialDAO senDAO;
     private UteisDAO utilDAO;
     private DadosPessoaisDAO dadosDAO;
-    private String url = "jdbc:h2:./lib/agendaNortev";
+    private String url = "jdbc:h2:./lib/superPIMSystem";
     private String user = "admin";
     private String pass = "admin";
     private String driver = "org.h2.Driver";
@@ -96,6 +96,7 @@ public class DAOFactory {
         createTable.append("create table Contato(");
         createTable.append("id int identity Primary key,");
         createTable.append("nome varchar,");
+        createTable.append("dataNascimento varchar,");
         createTable.append("DDD Integer,");
         createTable.append("tel varchar,");
         createTable.append("cel varchar,");
@@ -134,7 +135,11 @@ public class DAOFactory {
         createTable.append("create table DadosPessoais(");
         createTable.append("id int primary key,");
         createTable.append("nome varchar,");
-        createTable.append("email varchar");
+        createTable.append("email varchar,");
+        createTable.append("facebookuser varchar,");
+        createTable.append("facebookpassword varchar,");
+        createTable.append("twitteruser varchar,");
+        createTable.append("twitterpassword varchar");
         createTable.append(");");
 
         Statement cria = conexao.createStatement();
@@ -143,7 +148,7 @@ public class DAOFactory {
     
     public void inserirDado() throws SQLException{
        StringBuilder insertDado = new StringBuilder();
-        insertDado.append("insert into DadosPessoais values (1,'NaoRegistrou2','NaoRegistrou@NaoRegistrou2');");
+        insertDado.append("insert into DadosPessoais values (1,'NaoRegistrou2','NaoRegistrou@NaoRegistrou2','','','','');");
 
         Statement insere = conexao.createStatement();
         insere.execute(insertDado.toString());
@@ -176,5 +181,9 @@ public class DAOFactory {
             single = new DAOFactory();
         }
         return single;
+    }
+    
+    public Connection getConnection() {
+        return conexao;
     }
 }

@@ -3,6 +3,7 @@ package br.ufu.facom.esof.superpimsystem.model;
 public class Contato {
     private int id;
     private String nome;
+    private String dataNascimento;
     private int DDD;
     private String tel,cel,msn,skype,estado,cidade,bairro,endereco,site;
     private String informacoesAdd,email;
@@ -24,7 +25,10 @@ public class Contato {
     }
     
 
-    public Contato(String nome, int DDD, String tel, String cel, String msn, String skype, String estado, String cidade, String bairro, String endereco, String site, String informacoesAdd, String email) {
+    public Contato(String nome, int DDD, String tel, String cel, String msn,
+            String skype, String estado, String cidade, String bairro,
+            String endereco, String site, String informacoesAdd, String email,
+            String dataNascimento) {
         this.nome = nome;
         this.DDD = DDD;
         this.tel = tel;
@@ -38,6 +42,7 @@ public class Contato {
         this.site = site;
         this.informacoesAdd = informacoesAdd;
         this.email = email;
+        this.dataNascimento = dataNascimento;
     }
 
     public String getInformacoesAdd() {
@@ -150,21 +155,13 @@ public class Contato {
     public void setTel(String tel) {
         this.tel = tel;
     }
-
-    public Contato(String nome, int DDD, String tel, String cel, String msn, String skype, String estado, String cidade, String bairro, String endereco, String site) {
-        this.nome = nome;
-        this.DDD = DDD;
-        this.tel = tel;
-        this.cel = cel;
-        this.msn = msn;
-        this.skype = skype;
-        this.estado = estado;
-        this.cidade = cidade;
-        this.bairro = bairro;
-        this.endereco = endereco;
-        this.site = site;
+    
+    public String getDataNascimento() {
+        return dataNascimento;
     }
-
-
+    
+    public void setDataNascimento(String dataNasc) {
+        this.dataNascimento = dataNasc;
+    }
 
 }

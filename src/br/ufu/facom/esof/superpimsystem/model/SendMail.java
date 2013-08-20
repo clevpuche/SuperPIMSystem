@@ -91,7 +91,7 @@ public class SendMail {
 			 *  2 - seu nome de usuario do gmail
 			 *  3 - sua senha do gmail
 			 */
-			tr.connect(mailSMTPServer, "lembretesnortev","lostmind");
+			tr.connect(mailSMTPServer, "superpimsystem","pimsystem");
 			msg.saveChanges(); // don't forget this
 			//envio da mensagem
 			tr.sendMessage(msg, msg.getAllRecipients());

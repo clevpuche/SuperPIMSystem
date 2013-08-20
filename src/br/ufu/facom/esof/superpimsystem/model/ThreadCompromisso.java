@@ -104,7 +104,7 @@ public class ThreadCompromisso implements Runnable {
                 if (naoHoje) {
                     //se HOJE for depois da vespera...
                     if (dataHoje.after(dataVespera)) {
-                        enviarEmail(Principal.dados.getEmail(),"Notificacao de compromisso possivelmente atrasado! -Equipe Nortev Solutions","Caro(a) "+Principal.dados.getNome()+",\nNo  dia: "+sdfBR.format(dataComp)+", voce tem/tinha um compromisso.\n\nLocal: "+not.getLocal()+"\nHora: "+not.getHora()+"\nAssunto: "+not.getDetalhes());                        
+                        enviarEmail(Principal.dados.getEmail(),"Notificacao de compromisso possivelmente atrasado! Super PIM System","Caro(a) "+Principal.dados.getNome()+",\nNo  dia: "+sdfBR.format(dataComp)+", voce tem/tinha um compromisso.\n\nLocal: "+not.getLocal()+"\nHora: "+not.getHora()+"\nAssunto: "+not.getDetalhes());                        
                         not.setFuiNotificadoVespera(true);
                         try {
                             d.update(not);

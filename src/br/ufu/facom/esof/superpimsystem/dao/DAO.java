@@ -18,7 +18,7 @@ public abstract class DAO {
 
     
     
-    public void salvar(Anotacao a) throws SQLException{System.out.println("PQP - N Houve Sobrescrita");}
+    public void salvar(Anotacao a) throws SQLException{System.out.println("N Houve Sobrescrita");}
     public void update(Anotacao a) throws SQLException{}
     public void delete(Anotacao a) throws SQLException{}
     public ArrayList<Anotacao> getAllAnot() throws SQLException{return null;}

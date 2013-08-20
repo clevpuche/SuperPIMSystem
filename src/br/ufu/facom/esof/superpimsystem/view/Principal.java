@@ -32,6 +32,14 @@ import br.ufu.facom.esof.superpimsystem.control.ContatosControl;
 import br.ufu.facom.esof.superpimsystem.control.ReceitasControl;
 import br.ufu.facom.esof.superpimsystem.control.SerialControl;
 import br.ufu.facom.esof.superpimsystem.control.TelefoneControl;
+import com.restfb.exception.FacebookOAuthException;
+import java.sql.SQLException;
+import java.util.Calendar;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.GregorianCalendar;
+import java.util.concurrent.TimeUnit;
+import sun.misc.Signal;
 
 public class Principal extends javax.swing.JFrame {
 
@@ -83,7 +91,26 @@ public class Principal extends javax.swing.JFrame {
         Thread tread = new Thread(t);
         tread.start();
         
-                
+        this.show();
+        ContatosControl cc = new ContatosControl();
+
+
+        try {
+            cc.comprimentaAniversariantes();
+        }
+        catch (FacebookOAuthException f) {
+            JOptionPane.showMessageDialog(this, "Erro ao realizar login no Facebbok: AccessToken Expirou!\nGere outro AccessToken, insira-o nos dados pessoais"
+                    + "e reinicie o sistema SuperPimSystem.", "Access Token Expirado", JOptionPane.ERROR_MESSAGE);
+        }
+        catch (SQLException s) {
+            
+        }
+        catch (NullPointerException n) {
+            
+        }
+        
+       
+        
 
     }
 
@@ -111,6 +138,7 @@ public class Principal extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jSeparator8 = new javax.swing.JToolBar.Separator();
         jButton7 = new javax.swing.JButton();
+        jSeparator9 = new javax.swing.JToolBar.Separator();
         abaPainel = new javax.swing.JTabbedPane();
         abaContatos = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -271,6 +299,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jToolBar1.add(jButton7);
+        jToolBar1.add(jSeparator9);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -296,6 +325,11 @@ public class Principal extends javax.swing.JFrame {
         pesquisaContatos.add(opNome);
         opNome.setSelected(true);
         opNome.setText("Nome");
+        opNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opNomeActionPerformed(evt);
+            }
+        });
 
         pesquisaContatos.add(opDDD);
         opDDD.setText("DDD");
@@ -1074,6 +1108,10 @@ public class Principal extends javax.swing.JFrame {
         rG.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void opNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_opNomeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1139,6 +1177,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JToolBar.Separator jSeparator5;
     private javax.swing.JToolBar.Separator jSeparator6;
     private javax.swing.JToolBar.Separator jSeparator8;
+    private javax.swing.JToolBar.Separator jSeparator9;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JRadioButton opBairro;
     private javax.swing.JRadioButton opCategoria;

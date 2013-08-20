@@ -16,11 +16,11 @@ public class ContatoDAO extends DAO {
     private PreparedStatement delete;
     private PreparedStatement select; 
 
-    private final String insertSQL = "insert into Contato values (default,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-    private final String updateSQL = "update Contato set nome = ?, DDD = ?, tel = ?, cel = ?, msn = ?, skype = ?, estado = ?, cidade = ?, bairro = ?, endereco = ?, site = ?, informacoesAdd = ?, email = ? where id = ?";
+    private final String insertSQL = "insert into Contato values (default,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    private final String updateSQL = "update Contato set nome = ?, DDD = ?, tel = ?, cel = ?, msn = ?, skype = ?, estado = ?, cidade = ?, bairro = ?, endereco = ?, site = ?, informacoesAdd = ?, email = ?, dataNascimento = ? where id = ?";
     private final String deleteSQL = "delete from Contato where id = ?";
     private final String selectSQL = "select * from Contato";
-     private Connection conexao;
+    private Connection conexao;
     
     public ContatoDAO(Connection conexao) throws SQLException{
         this.conexao = conexao;
@@ -35,7 +35,7 @@ public class ContatoDAO extends DAO {
         ResultSet rs = select.executeQuery();
         
         while(rs.next()){
-            Contato a = new Contato(       rs.getString(2),        rs.getInt(3),        rs.getString(4),        rs.getString(5),        rs.getString(6),        rs.getString(7),        rs.getString(8),        rs.getString(9),        rs.getString(10),        rs.getString(11),        rs.getString(12),        rs.getString(13),        rs.getString(14));
+            Contato a = new Contato(rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11),        rs.getString(12),        rs.getString(13),        rs.getString(14), rs.getString(15));
             a.setId(rs.getInt(1));
             anotacoes.add(a);
         }
@@ -46,7 +46,7 @@ public class ContatoDAO extends DAO {
     public void salvar(Contato a) throws SQLException {
         save.setString(1, a.getNome());
         save.setInt(2, a.getDDD());
-        save.setString(3, a.getCel());
+        save.setString(3, a.getTel());
         save.setString(4, a.getCel());
         save.setString(5, a.getMsn());
         save.setString(6, a.getSkype());
@@ -57,13 +57,14 @@ public class ContatoDAO extends DAO {
         save.setString(11, a.getSite());
         save.setString(12, a.getInformacoesAdd());
         save.setString(13, a.getEmail());
+        save.setString(14, a.getDataNascimento());
         save.execute();
     }
     
     public void update(Contato a) throws SQLException{
        update.setString(1, a.getNome());
         update.setInt(2, a.getDDD());
-        update.setString(3, a.getCel());
+        update.setString(3, a.getTel());
         update.setString(4, a.getCel());
         update.setString(5, a.getMsn());
         update.setString(6, a.getSkype());
@@ -74,7 +75,9 @@ public class ContatoDAO extends DAO {
         update.setString(11, a.getSite());
         update.setString(12, a.getInformacoesAdd());
         update.setString(13, a.getEmail());
-        update.setInt(14, a.getId());
+        update.setString(14, a.getDataNascimento());
+        update.setInt(15, a.getId());
+        
         
         update.executeUpdate();
     }

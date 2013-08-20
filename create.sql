@@ -19,6 +19,7 @@ fuiNotificadoDia boolean
 create table Contato(
 id int identity Primary key,
 nome varchar,
+dataNascimento varchar,
 DDD Integer,
 tel varchar,
 cel varchar,
@@ -55,7 +56,11 @@ create table Uteis(
 );
 
 create table DadosPessoais(
-id int primary key,
+id int Primary key,
 nome varchar,
-email varchar
+email varchar,
+facebookuser varchar,
+facebookpassword varchar,
+twitteruser varchar,
+twitterpassword varchar
 );

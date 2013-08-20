@@ -1,9 +1,19 @@
 package br.ufu.facom.esof.superpimsystem.control;
 
+import br.ufu.facom.esof.superpimsystem.dao.DAOFactory;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 import br.ufu.facom.esof.superpimsystem.model.Contato;
+import br.ufu.facom.esof.superpimsystem.view.Principal;
+import com.restfb.DefaultFacebookClient;
+import com.restfb.FacebookClient;
+import com.restfb.Parameter;
+import com.restfb.types.FacebookType;
+import com.restfb.types.User;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.sql.Date;
 
 public class ContatosControl extends AbstractTableModel {
 
@@ -99,11 +109,9 @@ public class ContatosControl extends AbstractTableModel {
         filtrarNome("");
     }
 
-
     public ContatosControl(List<Contato> listaDeContato) {
         linhas = new ArrayList<Contato>(listaDeContato);
     }
-
 
 
     @Override
@@ -228,8 +236,27 @@ public class ContatosControl extends AbstractTableModel {
     public boolean isEmpty() {
         return linhas.isEmpty();
     }
-
-
-
+    
+    public void comprimentaAniversariantes() throws SQLException, NullPointerException {
+               
+        Date data = new java.sql.Date(System.currentTimeMillis());    
+        SimpleDateFormat formatarDate = new SimpleDateFormat("dd/MM/yyyy");   
+        String date = String.valueOf(formatarDate.format(data));
+             
+        br.ufu.facom.esof.superpimsystem.dao.DAO d = br.ufu.facom.esof.superpimsystem.dao.DAOFactory.getInstance().getDAO(DAOFactory.CONTATO);
+        ArrayList<Contato> contatos = new ArrayList<Contato>();
+        contatos = d.getAllCon();
+        
+        //Cria a conexão com o Facebook com o usuário e o token access cadastrado...
+        FacebookClient fbClient = new DefaultFacebookClient(Principal.dados.getFacebookPassword());
+        User user = fbClient.fetchObject(Principal.dados.getFacebookUser(), com.restfb.types.User.class);
+        
+        //Percorre a lista de contatos cadastrados comprimentando-os...  
+        for (Contato c : contatos) {
+            if (c.getDataNascimento().equals(date)) {
+                FacebookType publishMessageResponse = fbClient.publish("me/feed", FacebookType.class,
+                    Parameter.with("message", "Parabéns " + c.getNome() + ". Feliz aniversário!!!"));
+            }
+        }
+    }
 }
-

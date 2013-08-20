@@ -33,6 +33,7 @@ public class ContatoGUI extends javax.swing.JFrame {
     public void PreencherContatos() {
         //preencher os campos!
         CampoEndereco.setText(atual.getEndereco());
+        campoDataNascimento.setText(atual.getDataNascimento());
         campoAdicional.setText(atual.getInformacoesAdd());
         campoBairro.setText(atual.getBairro());
         campoCel.setText(atual.getCel());
@@ -83,6 +84,8 @@ public class ContatoGUI extends javax.swing.JFrame {
         campoBairro = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         CampoEndereco = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        campoDataNascimento = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -125,6 +128,14 @@ public class ContatoGUI extends javax.swing.JFrame {
 
         jLabel9.setText("Endereço");
 
+        jLabel15.setText("Data Nasc.");
+
+        campoDataNascimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoDataNascimentoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -143,12 +154,7 @@ public class ContatoGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoCel, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(campoCel))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -160,11 +166,23 @@ public class ContatoGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoBairro, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE))
+                        .addComponent(campoBairro))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CampoEndereco, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(campoNome, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(campoDataNascimento)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(CampoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(32, 32, 32))
         );
         jPanel1Layout.setVerticalGroup(
@@ -196,7 +214,9 @@ public class ContatoGUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(CampoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CampoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15)
+                    .addComponent(campoDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
@@ -223,7 +243,7 @@ public class ContatoGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -239,12 +259,12 @@ public class ContatoGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campoSite, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)))
+                        .addComponent(campoSite)))
                 .addGap(83, 83, 83))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(166, 166, 166)
                 .addComponent(jLabel11)
-                .addContainerGap(277, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -328,7 +348,7 @@ public class ContatoGUI extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -352,13 +372,14 @@ public class ContatoGUI extends javax.swing.JFrame {
                 if (campoNome.getText().equals("")) {
                     JOptionPane.showMessageDialog(this, "Por favor preencha o nome.", "Erro", JOptionPane.ERROR_MESSAGE);
                 } else {
-                    d.salvar(new Contato(campoNome.getText(), num ,campoTel.getText(),campoCel.getText(), campoMSN.getText(),campoSKYPE.getText(), campoEstado.getSelectedItem().toString(),campoCidade.getText(),campoBairro.getText(), CampoEndereco.getText(),campoSite.getText(), campoAdicional.getText(),campoEmail.getText()));
+                    d.salvar(new Contato(campoNome.getText(), num ,campoTel.getText(),campoCel.getText(), campoMSN.getText(),campoSKYPE.getText(), campoEstado.getSelectedItem().toString(),campoCidade.getText(),campoBairro.getText(), CampoEndereco.getText(),campoSite.getText(), campoAdicional.getText(),campoEmail.getText(), campoDataNascimento.getText()));
                 }
             } else {
                  if (campoNome.getText().equals("")) {
                     JOptionPane.showMessageDialog(this, "Por favor preencha o nome.", "Erro", JOptionPane.ERROR_MESSAGE);
                 } else {
                     atual.setEndereco(CampoEndereco.getText());
+                    atual.setDataNascimento(campoDataNascimento.getText());
                     atual.setInformacoesAdd(campoAdicional.getText());
                     atual.setBairro(campoBairro.getText());
                     atual.setCel(campoCel.getText());
@@ -401,6 +422,10 @@ public class ContatoGUI extends javax.swing.JFrame {
          }
     }//GEN-LAST:event_bExcluirActionPerformed
 
+    private void campoDataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoDataNascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoDataNascimentoActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -411,6 +436,7 @@ public class ContatoGUI extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField campoCel;
     private javax.swing.JTextField campoCidade;
     private javax.swing.JTextField campoDDD;
+    private javax.swing.JTextField campoDataNascimento;
     private javax.swing.JTextField campoEmail;
     private javax.swing.JComboBox campoEstado;
     private javax.swing.JTextField campoMSN;
@@ -426,6 +452,7 @@ public class ContatoGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
