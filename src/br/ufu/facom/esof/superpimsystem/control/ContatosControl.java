@@ -14,6 +14,10 @@ import com.restfb.types.User;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.sql.Date;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.TwitterFactory;
+import twitter4j.auth.AccessToken;
 
 public class ContatosControl extends AbstractTableModel {
 
@@ -237,7 +241,7 @@ public class ContatosControl extends AbstractTableModel {
         return linhas.isEmpty();
     }
     
-    public void comprimentaAniversariantes() throws SQLException, NullPointerException {
+    public void comprimentaAniversariantes() throws SQLException, NullPointerException, TwitterException {
                
         Date data = new java.sql.Date(System.currentTimeMillis());    
         SimpleDateFormat formatarDate = new SimpleDateFormat("dd/MM/yyyy");   
@@ -248,14 +252,27 @@ public class ContatosControl extends AbstractTableModel {
         contatos = d.getAllCon();
         
         //Cria a conexão com o Facebook com o usuário e o token access cadastrado...
-        FacebookClient fbClient = new DefaultFacebookClient(Principal.dados.getFacebookPassword());
-        User user = fbClient.fetchObject(Principal.dados.getFacebookUser(), com.restfb.types.User.class);
+        //FacebookClient fbClient = new DefaultFacebookClient(Principal.dados.getFacebookPassword());
+        //User user = fbClient.fetchObject(Principal.dados.getFacebookUser(), com.restfb.types.User.class);
+        
+        //Variáveis necessárias para a conexão
+        String ACCESS_TOKEN = "240298152-8CPSUCjcDtmZFrwQHm8I0775SA4WLgBmxnDxYWTR";
+        String ACCESS_TOKEN_SECRET = "Tt2uKwqw5RQwlwRZJo49ezZFi8HBgfuuSaiwQz4d8";
+        String CONSUMER_KEY = "wsyYQjTYUGwoPbjXl8DuJg";
+        String CONSUMER_KEY_SECRET = "ufqgvtxZx7W37PHOwlBZTRpwMc8AeyWxRqg6YeuvDDk";
+        
+        Twitter twitter = new TwitterFactory().getInstance();
+        twitter.setOAuthConsumer(CONSUMER_KEY, CONSUMER_KEY_SECRET);
+        AccessToken oathAccessToken = new AccessToken(ACCESS_TOKEN, ACCESS_TOKEN_SECRET);
+        
+        twitter.setOAuthAccessToken(oathAccessToken);
         
         //Percorre a lista de contatos cadastrados comprimentando-os...  
         for (Contato c : contatos) {
             if (c.getDataNascimento().equals(date)) {
-                FacebookType publishMessageResponse = fbClient.publish("me/feed", FacebookType.class,
-                    Parameter.with("message", "Parabéns " + c.getNome() + ". Feliz aniversário!!!"));
+                //FacebookType publishMessageResponse = fbClient.publish("me/feed", FacebookType.class,
+                    //  Parameter.with("message", "Parabéns " + c.getNome() + ". Feliz aniversário!!!"));
+                twitter.updateStatus("Párabens " + c.getNome() + ". Feliz aniverssário!!");
             }
         }
     }
