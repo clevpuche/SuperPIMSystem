@@ -137,8 +137,10 @@ public class Principal extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JToolBar.Separator();
         jButton6 = new javax.swing.JButton();
         jSeparator8 = new javax.swing.JToolBar.Separator();
-        jButton7 = new javax.swing.JButton();
+        jButtonCalendario = new javax.swing.JButton();
         jSeparator9 = new javax.swing.JToolBar.Separator();
+        jButtonFacebook = new javax.swing.JButton();
+        jSeparator10 = new javax.swing.JToolBar.Separator();
         abaPainel = new javax.swing.JTabbedPane();
         abaContatos = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -192,6 +194,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -285,21 +288,37 @@ public class Principal extends javax.swing.JFrame {
         jToolBar1.add(jButton6);
         jToolBar1.add(jSeparator8);
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/calendario.png"))); // NOI18N
-        jButton7.setText("Calendário");
-        jButton7.setFocusable(false);
-        jButton7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton7.setMaximumSize(new java.awt.Dimension(89, 84));
-        jButton7.setMinimumSize(new java.awt.Dimension(89, 84));
-        jButton7.setPreferredSize(new java.awt.Dimension(89, 84));
-        jButton7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        jButtonCalendario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/calendario.png"))); // NOI18N
+        jButtonCalendario.setText("Calendário");
+        jButtonCalendario.setFocusable(false);
+        jButtonCalendario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonCalendario.setMaximumSize(new java.awt.Dimension(89, 84));
+        jButtonCalendario.setMinimumSize(new java.awt.Dimension(89, 84));
+        jButtonCalendario.setPreferredSize(new java.awt.Dimension(89, 84));
+        jButtonCalendario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonCalendario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                jButtonCalendarioActionPerformed(evt);
             }
         });
-        jToolBar1.add(jButton7);
+        jToolBar1.add(jButtonCalendario);
         jToolBar1.add(jSeparator9);
+
+        jButtonFacebook.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/face.png"))); // NOI18N
+        jButtonFacebook.setText("Facebook");
+        jButtonFacebook.setFocusable(false);
+        jButtonFacebook.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButtonFacebook.setMaximumSize(new java.awt.Dimension(89, 84));
+        jButtonFacebook.setMinimumSize(new java.awt.Dimension(89, 84));
+        jButtonFacebook.setPreferredSize(new java.awt.Dimension(89, 84));
+        jButtonFacebook.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButtonFacebook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFacebookActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButtonFacebook);
+        jToolBar1.add(jSeparator10);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -895,6 +914,14 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2);
 
+        jMenuItem3.setText("Fechar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Ajuda");
@@ -1086,11 +1113,11 @@ public class Principal extends javax.swing.JFrame {
         rSS.setVisible(true);
     }//GEN-LAST:event_tabelaReceitasMouseClicked
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void jButtonCalendarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCalendarioActionPerformed
         // TODO add your handling code here:
         CalendarioGUI cal = new CalendarioGUI();
         cal.setVisible(true);
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_jButtonCalendarioActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
@@ -1111,6 +1138,18 @@ public class Principal extends javax.swing.JFrame {
     private void opNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_opNomeActionPerformed
+
+    private void jButtonFacebookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFacebookActionPerformed
+        // TODO add your handling code here:
+        FacebookGUI face = new FacebookGUI();
+        face.setVisible(true);
+    }//GEN-LAST:event_jButtonFacebookActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+       JOptionPane.showMessageDialog(null, "Fechando Super PIM System... Obrigado!\n\n..:: Super PIM System ::..", "Fechando...", JOptionPane.WARNING_MESSAGE);
+                DAOFactory.getInstance().fechaConexao();
+                System.exit(0);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1144,7 +1183,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButtonCalendario;
+    private javax.swing.JButton jButtonFacebook;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -1156,6 +1196,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1171,6 +1212,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JToolBar.Separator jSeparator1;
+    private javax.swing.JToolBar.Separator jSeparator10;
     private javax.swing.JToolBar.Separator jSeparator2;
     private javax.swing.JToolBar.Separator jSeparator3;
     private javax.swing.JToolBar.Separator jSeparator4;
